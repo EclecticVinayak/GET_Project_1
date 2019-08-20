@@ -54,7 +54,15 @@ public class ProjectDaoImpl implements ProjectDao{
 
 
 	public boolean setProjectConfig(ProjectConfiguration obj) {
-		// TODO Auto-generated method stub
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			session.save(obj);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		return false;
 	}
 

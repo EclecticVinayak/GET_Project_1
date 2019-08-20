@@ -1,12 +1,18 @@
 package com.getBatch3.BillingManagementBackend.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="project_allocation")
 public class ProjectAllocation {
 	@Id
+	@GeneratedValue
 	@Column(name="ALLOCATION_ID")
 	private int ALLOCATION_ID;
 	

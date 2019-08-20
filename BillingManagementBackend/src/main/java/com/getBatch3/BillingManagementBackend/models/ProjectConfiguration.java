@@ -1,11 +1,17 @@
 package com.getBatch3.BillingManagementBackend.models;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="project_config")
 public class ProjectConfiguration {
 	@Id
+	@GeneratedValue
 	@Column(name="CONFIGURATION_ID")
 	private int CONFIGURATION_ID;
 	@Column(name="PER_HOUR_BILLING")

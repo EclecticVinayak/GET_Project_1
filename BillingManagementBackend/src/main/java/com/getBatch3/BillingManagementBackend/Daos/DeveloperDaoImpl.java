@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.getBatch3.BillingManagementBackend.models.Developer;
+import com.getBatch3.BillingManagementBackend.models.ProjectAllocation;
 
 
 @Component
@@ -32,5 +33,37 @@ public class DeveloperDaoImpl implements DeveloperDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public Developer getDeveloper(int id,String pass) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			String s= "select * from Developer where Dev_Id=:x and Password=:y";
+			Query q = session.createQuery(s);
+			q.setParameter("x", id);
+			q.setParameter("y", pass);
+			List allDev = q.list();
+			Developer dev = (Developer)allDev.get(0);
+			return dev;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public boolean setProjectConfig(ProjectAllocation obj) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			session.save(obj);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
